@@ -12,6 +12,7 @@ ARGS=input.txt -c $(OUT)
 build: bin/*/*.class
 
 bin/%.class: src/%.java
+	@mkdir -p bin
 	$(JAVAC) $(JCP) src/$*.java
 
 run: build
