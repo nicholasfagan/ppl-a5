@@ -39,7 +39,7 @@ public class ParseTree {
 				res += ANSI_BOLD + ((Token)data ).getType() + " (" + ((Token)data).getRep() + ")" + ANSI_UNBOLD + ANSI_RESET +"\n";
 				break;
 			default:
-				res += ANSI_BLUE + ((Token)data ).getType() + "\n" + ANSI_RESET;
+				res += ANSI_BLUE + ((Token)data ).getType() + ANSI_RESET;
 			}
 		}else {
 			res +=  ANSI_GREEN + data.toString() + "\n" + ANSI_RESET;
