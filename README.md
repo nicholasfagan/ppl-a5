@@ -24,7 +24,7 @@ There is an additional option to colorize output, ``` -c ``` using
 ansi escape sequences. This makes reading the parse tree much easier on the eyes.
 This can be disabled by removing the ``` -c ``` option from the Makefile.
 
-## Descriptions
+## Description
 
 The program scans and tokenizes the input using regular expressions.
 Then the tokenized output is piped to the Parser,
@@ -36,5 +36,5 @@ in the NonTerminal class.
 The program generates a tree structure representing the semantics of the input.
 On an invalid input, it displays an error to stderr.
 
-The tree structure is then recursivley printed, optionally with colors.
+The tree structure is then printed, optionally with colors.
 
