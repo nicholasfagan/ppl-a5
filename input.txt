@@ -1,0 +1,17 @@
+(define (power a b)
+	(let pow ([x a][y b])
+		(cond 
+			[(or (= x 1) (= y 0)) 1]
+			[(= (mod y 2) 0)
+				(pow (* x x) (/ y 2))]
+			[(= (mod y 2) 1)
+				(* x (pow x (- y 1)))])))
+
+(display "2 to the power of 3 is: ")
+
+(display (power 3 7)) 
+
+(newline)
+
+
+
