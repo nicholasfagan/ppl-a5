@@ -38,3 +38,7 @@ On an invalid input, it displays an error to stderr.
 
 The tree structure is then printed, optionally with colors.
 
+## Example
+
+![example colorized tree output](https://github.com/nicholasfagan/ppl-a5/raw/master/Example.png)
+
