@@ -1,0 +1,37 @@
+Program           --> | TopLevelForm Program
+TopLevelForm      --> ( InnerTLF )
+InnerTLF          --> Definition | FunCall
+Definition        --> define InnerDefine
+InnerDefine       --> identifier Expression
+                  | ( identifier ArgList ) Statements
+ArgList           --> | identifier ArgList
+Statements        --> ( SBrRestRD | [ SBrRestSQ | { SBrRestCU | SNBr
+SBrRestCU         --> BrackExpression } OptStatements | Definition } Statements
+SBrRestSQ         --> BrackExpression ] OptStatements | Definition ] Statements
+SBrRestRD         --> BrackExpression ) OptStatements | Definition ) Statements
+SNBr              --> NoBrackExpression OptStatements
+OptStatements     --> | Statements 
+Statement         --> ( BrStatement ) | NoBrackExpression
+BrStatement       --> Definition | BrackExpression
+Expressions       --> | Expression Expressions
+Expression        --> ( BrackExpression ) | NoBrackExpression
+BrackExpression   --> FunCall | Lambda | QuotedExpression | BeginExpression
+								  | LetExpression | IfExpression | CondExpression
+NoBrackExpression --> identifier | number | char | bool | string | TickQuotedExpr
+FunCall           --> identifier Expressions
+Lambda            -->  lambda ( ArgList ) Statements 
+TickQuotedExpr    --> ' Expression
+QuotedExpression  --> quote Expression
+BeginExpression   -->  begin Statements
+LetExpression     --> let InnerLet Statements
+InnerLet          --> identifier ( VarDefs ) 
+                  | ( VarDefs )
+VarDefs           --> VarDef MoreVarDefs
+MoreVarDefs       --> | VarDefs
+VarDef            --> ( identifier Expression )
+IfExpression      --> if Expression Expression Else
+Else              --> | Expression 
+CondExpression    --> cond CondBranches
+CondBranches      --> CondBranch MoreCondBranches
+MoreCondBranches  --> | CondBranches
+CondBranch        --> ( Expression Statements )
