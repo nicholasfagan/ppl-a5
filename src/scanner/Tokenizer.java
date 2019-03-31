@@ -1,6 +1,11 @@
 package scanner;
 import java.util.NoSuchElementException;
 
+/**
+ * A Peekable Iterator of Tokens.
+ *  Uses regular expressions. (It Cheats)
+ * @author nfagan
+ */
 public class Tokenizer {
 	private String s;
 	private int pos;
@@ -8,6 +13,11 @@ public class Tokenizer {
 	
 	Token peeked;
 	
+	/**
+	 * Initialized a new Tokenizer for the current line.
+	 * @param input The line of input
+	 * @param line The line number
+	 */
 	public Tokenizer(String input, int line) {
 		this.line=line;
 		this.s=input;

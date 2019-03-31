@@ -8,6 +8,11 @@ import java.io.PrintStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+/**
+ * Parses Command line arguments.
+ * @author nfagan
+ *
+ */
 public class Config {
 	private InputStream in;
 	private PrintStream out;
@@ -51,6 +56,7 @@ public class Config {
 		
 		arguments.remove(0);
 		
+		//set up output printstream
 		if(arguments.size() == 0) {
 			setOut(System.out);
 		} else {

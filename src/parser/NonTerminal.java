@@ -2,7 +2,18 @@ package parser;
 
 import scanner.Token;
 import scanner.TokenType;
-
+/**
+ * This is the Recursive Descent Parser.
+ * 
+ * Each type of the Enum is a Non-Terminal in the grammar.txt.
+ * 
+ * The eval() for each non-terminal decides what to parse it as
+ * using the next token from the iterator and the 
+ * predict set of the grammar.
+ * 
+ * @author nfagan
+ *
+ */
 public enum NonTerminal {
 	Program,
 	TopLevelForm,
@@ -39,7 +50,11 @@ public enum NonTerminal {
 	MoreCondBranches,
 	CondBranch
 	;
-	
+	/**
+	 * @param l
+	 * @param r
+	 * @return If l and r form a pair of matching open and close brackets.
+	 */
 	private boolean brack_match(Token l, Token r) {
 		return l != null && r != null &&(
 				(l.getType() == TokenType.OPENSQ && r.getType() == TokenType.CLOSEDSQ)
@@ -57,6 +72,15 @@ public enum NonTerminal {
 		System.err.flush();
 		System.exit(1);
 	}
+	/**
+	 * Evaluates the token iterator into a parsetree.
+	 * 
+	 * I have tried my best to annotate each case with the predict set
+	 * that was used to make that decision.
+	 * 
+	 * @param ti The Token Iterator currently being used.
+	 * @return The ParseTree decided by the grammar.
+	 */
 	public ParseTree eval(TokenIterator ti) {
 		ParseTree pt = new ParseTree(this);
 		switch(this) {

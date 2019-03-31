@@ -1,4 +1,12 @@
 package scanner;
+/**
+ * Represents a token.
+ * 
+ * Contains its type and actual string representation,
+ * as well as its line number and position in the line.
+ * @author nfagan
+ *
+ */
 public class Token {
 
 
@@ -9,6 +17,11 @@ public class Token {
 	public String toString() {
 		return String.format("%s [%d:%d] %s", getType(),this.line,this.pos+1,getRep());
 	}
+	/**
+	 * Create a new Token from the serialized form.
+	 * (Used when reading the scanner output.)
+	 * @param serialized
+	 */
 	public Token(String serialized) {
 		String[] parts = serialized.split(" ",3);
 		if(parts.length != 3) return;
@@ -20,6 +33,13 @@ public class Token {
 		this.setRep(parts[2]);		
 		return;
 	}
+	
+	/**
+	 * Try to create a new Token from a substring of user input.
+	 * @param input
+	 * @param pos
+	 * @param line
+	 */
 	public Token(String input, int pos, int line) {
 		this.setRep(input);
 		this.setPos(pos);

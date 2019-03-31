@@ -2,6 +2,13 @@ package parser;
 
 import scanner.Token;
 
+/**
+ * Internal Representation for the parsed tree.
+ * 
+ * Creates the Printable Tree Structure output.
+ * @author nfagan
+ *
+ */
 public class ParseTree {
 	Object data;
 	ParseTree[] children;
@@ -9,6 +16,7 @@ public class ParseTree {
 		this.data = data;
 	}
 	public ParseTree() {}
+	
 	private String vline = "\u2502";   // '|'   (but taller)
 	private String hline = "\u2500";   // '-'   (but wider)
 	private String vhsplit = "\u251C"; // '|-'  (but one char)
@@ -27,11 +35,11 @@ public class ParseTree {
 	private static final String ANSI_BLUE = "\u001B[34m";
 			
 	
-	
+	/**
+	 * Recursively print the ParseTree, with coloring. 	
+	 * @return
+	 */
 	public String color_toString() {
-
-		
-		
 		String res= "";
 		if(data instanceof Token) {
 			switch(((Token)data).getType()) {
@@ -61,6 +69,9 @@ public class ParseTree {
 		
 	}
 	
+	/**
+	 * Recursively print the ParseTree 
+	 */
 	public String toString() {
 		String res= "";
 		if(data instanceof Token) {
@@ -74,6 +85,7 @@ public class ParseTree {
 		}else {
 			res +=  data.toString() + "\n";
 		}
+		//Prepend all the children lines with out tree structure.
 		if (children != null && children.length > 0) {
 			for(int i = 0; i < children.length; i++) {
 				String cstr = children[i].toString();

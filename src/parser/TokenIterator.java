@@ -4,7 +4,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import scanner.Token;
-
+/**
+ * An iterator of tokens from an arraylist.
+ * 
+ * I needed a peek() and didnt want to implement Peekable,
+ * but its there.
+ * @author nfagan
+ *
+ */
 public class TokenIterator implements Iterator<Token> {
 	private int pos;
 	private ArrayList<Token> tkarr;
@@ -25,7 +32,5 @@ public class TokenIterator implements Iterator<Token> {
 		if( t != null) pos++;
 		return t;
 	}
-	
-	
 
 }

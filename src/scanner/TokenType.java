@@ -1,5 +1,9 @@
 package scanner;
-
+/**
+ * Basic token types given from A3.
+ * @author nfagan
+ *
+ */
 public enum TokenType {
 
 	//invalid types

@@ -9,6 +9,13 @@ import java.io.PrintStream;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.NoSuchElementException;
+
+/**
+ * Reades the input file and turns it into tokens,
+ * using greedy algorithm.
+ * @author nfagan
+ *
+ */
 public class SchemeScanner {
 	public static ArrayList<Token> scan(InputStream in) {
 		Scanner s = new Scanner(in);
